@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
         }
         btnLogin.setOnClickListener {
             login()
-//            navigateToHome()
+            navigateToHome()
         }
 
         tvRedirectSignUp.setOnClickListener {
@@ -67,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
         forgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPassword::class.java)
             startActivity(intent)
-//            finish()
+            finish()
         }
 
         signInGoogle.setOnClickListener{

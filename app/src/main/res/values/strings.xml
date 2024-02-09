@@ -53,7 +53,7 @@
     <string name="selected_country_code">Selected Country Code:</string>
     <string name="todooo">TODO</string>
     <string name="todddooo">TODO</string>
-    <string name="default_web_client_id" translatable="false">YOUR_DEFAULT_WEB_CLIENT_ID</string>
+    <string name="default_web_client_id" translatable="false">769803812708-d71qm6pr3jggngrcf9k0v9shq16gkqqh.apps.googleusercontent.com</string>
 
     <string-array name="countries_array">
         <item>India (+91)</item>
