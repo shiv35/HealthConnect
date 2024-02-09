@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="confirmP" type="id" />
+    <item name="imageView14" type="id" />
+    <item name="firstName" type="id" />
+    <item name="lastName" type="id" />
 </resources>

@@ -1,3 +1,104 @@
 <resources>
-    <string name="app_name">Health_Connect</string>
+    <string name="app_name">design</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">forgot password ?</string>
+    <string name="login1">LOGIN</string>
+    <string name="log_in_with">Log in with</string>
+    <string name="or">OR</string>
+    <string name="don_t_have_an_account">Don’t have an account ?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account1">Don’t have an account?</string>
+    <string name="sign_up1">Sign Up</string>
+    <string name="todo">TODO</string>
+    <string name="search">Search</string>
+    <string name="forgot_password2">FORGOT PASSWORD</string>
+    <string name="forgot">FORGOT</string>
+    <string name="password1">PASSWORD</string>
+    <string name="to_receive_a_verification_code">To Receive a Verification Code</string>
+    <string name="please_enter_your_register_mobile_number">Please Enter Your Register Mobile Number</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="send">SEND</string>
+    <string name="_9177446658">9177446658</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="verify_your_number">VERIFY YOUR NUMBER</string>
+    <string name="verify">VERIFY</string>
+    <string name="_91_9250828765">91+ 9250828765</string>
+    <string name="otp_box1_description">Enter the first digit of your OTP code</string>
+    <string name="verify_your_number_description">Verify your phone number</string>
+    <string name="back_button_description">Back</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="_00_30">00:30</string>
+    <string name="please_enter_the_4_digit_code_sent_to">Please Enter The 4 Digit Code Sent To</string>
+    <string name="_91_9177446658">91+ 9177446658</string>
+    <string name="_1">1</string>
+    <string name="resend_code1">Resend Code</string>
+    <string name="create_new_password">CREATE NEW PASSWORD</string>
+    <string name="your_new_password_must_be_different">Your New Password Must Be Different</string>
+    <string name="from_previously_used_password">From Previously Used Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="save">SAVE</string>
+    <string name="sign_up2">SIGN UP</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="email1">Email</string>
+    <string name="password3">Password</string>
+    <string name="confirm_password4">Confirm Password</string>
+    <string name="signup">SIGNUP</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login2">Login</string>
+    <string name="_2">2</string>
+    <string name="selected_country_code">Selected Country Code:</string>
+    <string name="todooo">TODO</string>
+    <string name="todddooo">TODO</string>
+    <string name="default_web_client_id" translatable="false">YOUR_DEFAULT_WEB_CLIENT_ID</string>
+
+    <string-array name="countries_array">
+        <item>India (+91)</item>
+        <item>United States (+1)</item>
+        <item>United States (+1)</item>
+        <item>Canada (+1)</item>
+        <item>United Kingdom (+44)</item>
+        <item>Australia (+61)</item>
+        <item>Brazil (+55)</item>
+        <item>China (+86)</item>
+        <item>France (+33)</item>
+        <item>Germany (+49)</item>
+        <item>India (+91)</item>
+        <item>Italy (+39)</item>
+        <item>Japan (+81)</item>
+        <item>Mexico (+52)</item>
+        <item>Russia (+7)</item>
+        <item>South Korea (+82)</item>
+        <item>Spain (+34)</item>
+        <item>Switzerland (+41)</item>
+        <item>Turkey (+90)</item>
+        <item>Argentina (+54)</item>
+        <item>Austria (+43)</item>
+        <item>Belgium (+32)</item>
+        <item>Denmark (+45)</item>
+        <item>Finland (+358)</item>
+        <item>Greece (+30)</item>
+        <item>Hong Kong (+852)</item>
+        <item>Indonesia (+62)</item>
+        <item>Ireland (+353)</item>
+        <item>Malaysia (+60)</item>
+        <item>Netherlands (+31)</item>
+        <item>New Zealand (+64)</item>
+        <item>Norway (+47)</item>
+        <item>Philippines (+63)</item>
+        <item>Poland (+48)</item>
+        <item>Portugal (+351)</item>
+        <item>Singapore (+65)</item>
+        <item>South Africa (+27)</item>
+        <item>Sweden (+46)</item>
+        <item>Taiwan (+886)</item>
+        <item>Thailand (+66)</item>
+        <item>Ukraine (+380)</item>
+        <item>Vietnam (+84)</item>
+        <!-- Add more countries as needed -->
+    </string-array>
+
 </resources>
