@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "769803812708",
+    "project_id": "health-connect-6890d",
+    "storage_bucket": "health-connect-6890d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769803812708:android:2de536d180081b15838471",
+        "android_client_info": {
+          "package_name": "com.example.health_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLV-DckPLJNDk8s-K-5I-GatUB-29433Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
