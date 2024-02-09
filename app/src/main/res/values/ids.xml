@@ -4,4 +4,9 @@
     <item name="imageView14" type="id" />
     <item name="firstName" type="id" />
     <item name="lastName" type="id" />
+    <item name="textView" type="id" />
+    <item name="Email" type="id" />
+    <item name="Password" type="id" />
+    <item name="forgotPassword" type="id" />
+    <item name="Login" type="id" />
 </resources>
