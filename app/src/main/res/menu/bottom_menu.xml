@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:id="@+id/bottom_home"
+      android:title="home"
+      android:icon="@drawable/home"
+      />
+
+    <item
+        android:id="@+id/bottom_team"
+        android:title="team"
+        android:icon="@drawable/team"
+        />
+
+  <item android:title=""
+    android:enabled="true"
+      />
+  <item
+      android:id="@+id/bottom_chat"
+      android:title="chat"
+      android:icon="@drawable/chat"
+      />
+  <item
+      android:id="@+id/bottom_prescription"
+      android:title="prescription"
+      android:icon="@drawable/prescription"
+      />
+
+
+
+</menu>

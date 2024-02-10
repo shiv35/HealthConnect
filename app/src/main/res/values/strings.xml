@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">design</string>
+    <string name="app_name">Health Connect</string>
     <string name="login">LOGIN</string>
     <string name="forgot_password">forgot password ?</string>
     <string name="login1">LOGIN</string>
@@ -100,5 +100,7 @@
         <item>Vietnam (+84)</item>
         <!-- Add more countries as needed -->
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
