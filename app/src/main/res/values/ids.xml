@@ -9,4 +9,13 @@
     <item name="Password" type="id" />
     <item name="forgotPassword" type="id" />
     <item name="Login" type="id" />
+    <item name="textView7" type="id" />
+    <item name="textView12" type="id" />
+    <item name="editTextOTP1" type="id" />
+    <item name="editTextOTP3" type="id" />
+    <item name="textViewTimer" type="id" />
+    <item name="buttonResend1" type="id" />
+    <item name="editTextOTP4" type="id" />
+    <item name="editTextOTP2" type="id" />
+    <item name="button3" type="id" />
 </resources>
