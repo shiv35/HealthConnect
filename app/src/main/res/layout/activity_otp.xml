@@ -41,6 +41,7 @@
         android:textStyle="bold"
         android:text="@string/please_enter_the_4_digit_code_sent_to"
         android:textColor="@color/black"
+        style="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
