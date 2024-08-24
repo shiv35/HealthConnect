@@ -19,7 +19,7 @@ app = Flask(__name__)
 # svc = pickle.load(open('Medicine-Recommendation-System-main\models\svc.pkl', 'rb'))
 
 # Define the base directory where your datasets and models are located
-base_dir = "Medicine-Recommendation-System-main"
+base_dir = ""
 
 # Load datasets
 sym_des = pd.read_csv(os.path.join(base_dir, "dataset", "Symptom-severity.csv"))
