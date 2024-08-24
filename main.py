@@ -103,7 +103,7 @@ def predict_route():
 def start_ngrok():
     ngrok.set_auth_token("2l6x6QAahAMmvIgg0CO9di74tDK_2ukhLC8mafmssXkDYsAPh")
     url = ngrok.connect(5000)
-    print(f" * ngrok tunnel \"{url}\" -> \"http://127.0.0.1:5000\"")+
+    print(f" * ngrok tunnel \"{url}\" -> \"http://127.0.0.1:5000\"")
 
 # Function to run the app
 def run_app():
