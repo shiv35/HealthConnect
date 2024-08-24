@@ -7,15 +7,15 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Load datasets
-sym_des = pd.read_csv("Medicine-Recommendation-System-main/dataset/Symptom-severity.csv")
-precautions = pd.read_csv("Medicine-Recommendation-System-main/dataset/precautions_df.csv")
-workout = pd.read_csv("Medicine-Recommendation-System-main/dataset/workout_df.csv")
-description = pd.read_csv("Medicine-Recommendation-System-main/dataset/description.csv")
-medications = pd.read_csv('Medicine-Recommendation-System-main/dataset/medications.csv')
-diets = pd.read_csv("Medicine-Recommendation-System-main/dataset/diets.csv")
+sym_des = pd.read_csv("Medicine-Recommendation-System-main\dataset\Symptom-severity.csv")
+precautions = pd.read_csv("Medicine-Recommendation-System-main\dataset\precautions_df.csv")
+workout = pd.read_csv("Medicine-Recommendation-System-main\dataset\workout_df.csv")
+description = pd.read_csv("Medicine-Recommendation-System-main\dataset\description.csv")
+medications = pd.read_csv('Medicine-Recommendation-System-main\dataset\medications.csv')
+diets = pd.read_csv("Medicine-Recommendation-System-main\dataset\diets.csv")
 
 # Load model
-svc = pickle.load(open('Medicine-Recommendation-System-main/models/svc.pkl', 'rb'))
+svc = pickle.load(open('Medicine-Recommendation-System-main\models\svc.pkl', 'rb'))
 
 # Helper function
 def helper(dis):
