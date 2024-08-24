@@ -1,0 +1,5 @@
+numpy
+pandas
+pickle5
+flask
+pyngrok
