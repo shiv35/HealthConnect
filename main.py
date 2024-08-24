@@ -36,7 +36,8 @@ svc = pickle.load(open(os.path.join(base_dir, 'models', 'svc.pkl'), 'rb'))
 def helper(dis):
     desc = description[description['Disease'] == dis]['Description']
     desc = " ".join([w for w in desc])
-
+    
+    #pre stands for precautions
     pre = precautions[precautions['Disease'] == dis][['Precaution_1', 'Precaution_2', 'Precaution_3', 'Precaution_4']]
     pre = [col for col in pre.values]
 
@@ -85,6 +86,7 @@ def predict_route():
         
         # Prepare the response dictionary
         prediction = {
+            "predicted_disease":predicted_disease,
             "description": desc,
             "precautions": pre,
             "medications": med,
