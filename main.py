@@ -2,20 +2,35 @@ import numpy as np
 import pandas as pd
 import pickle
 from flask import Flask, request, jsonify
+import os
 
 # Initialize the Flask application
 app = Flask(__name__)
 
 # Load datasets
-sym_des = pd.read_csv("Medicine-Recommendation-System-main\dataset\Symptom-severity.csv")
-precautions = pd.read_csv("Medicine-Recommendation-System-main\dataset\precautions_df.csv")
-workout = pd.read_csv("Medicine-Recommendation-System-main\dataset\workout_df.csv")
-description = pd.read_csv("Medicine-Recommendation-System-main\dataset\description.csv")
-medications = pd.read_csv('Medicine-Recommendation-System-main\dataset\medications.csv')
-diets = pd.read_csv("Medicine-Recommendation-System-main\dataset\diets.csv")
+# sym_des = pd.read_csv("Medicine-Recommendation-System-main\dataset\Symptom-severity.csv")
+# precautions = pd.read_csv("Medicine-Recommendation-System-main\dataset\precautions_df.csv")
+# workout = pd.read_csv("Medicine-Recommendation-System-main\dataset\workout_df.csv")
+# description = pd.read_csv("Medicine-Recommendation-System-main\dataset\description.csv")
+# medications = pd.read_csv('Medicine-Recommendation-System-main\dataset\medications.csv')
+# diets = pd.read_csv("Medicine-Recommendation-System-main\dataset\diets.csv")
+
+# # Load model
+# svc = pickle.load(open('Medicine-Recommendation-System-main\models\svc.pkl', 'rb'))
+
+# Define the base directory where your datasets and models are located
+base_dir = "Medicine-Recommendation-System-main"
+
+# Load datasets
+sym_des = pd.read_csv(os.path.join(base_dir, "dataset", "Symptom-severity.csv"))
+precautions = pd.read_csv(os.path.join(base_dir, "dataset", "precautions_df.csv"))
+workout = pd.read_csv(os.path.join(base_dir, "dataset", "workout_df.csv"))
+description = pd.read_csv(os.path.join(base_dir, "dataset", "description.csv"))
+medications = pd.read_csv(os.path.join(base_dir, "dataset", "medications.csv"))
+diets = pd.read_csv(os.path.join(base_dir, "dataset", "diets.csv"))
 
 # Load model
-svc = pickle.load(open('Medicine-Recommendation-System-main\models\svc.pkl', 'rb'))
+svc = pickle.load(open(os.path.join(base_dir, 'models', 'svc.pkl'), 'rb'))
 
 # Helper function
 def helper(dis):
