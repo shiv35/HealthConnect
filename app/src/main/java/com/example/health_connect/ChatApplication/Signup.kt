@@ -16,22 +16,23 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class Signup : AppCompatActivity() {
     private lateinit var name: EditText
-    private lateinit var Username: EditText
-    private lateinit var Password: EditText
-    private lateinit var ConfirmPassword: EditText
-    private lateinit var Signup_Button: Button
+    private lateinit var username: EditText
+    private lateinit var password: EditText
+    private lateinit var confirmPassword: EditText
+    private lateinit var signupButton: Button
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var loginAct : TextView
+    private lateinit var loginAct: TextView
     private lateinit var mDbRef: DatabaseReference
-    private lateinit var UploadImage : ImageView
-    private lateinit var database:FirebaseDatabase
-    private lateinit var storage : FirebaseStorage
+    private lateinit var uploadImage: ImageView
+    private lateinit var database: FirebaseDatabase
+    private lateinit var storage: FirebaseStorage
 
     private val PICK_IMAGE_REQUEST = 1
-    private var imageUri : Uri? = null
+    private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,18 +41,17 @@ class Signup : AppCompatActivity() {
         // Initialize Firebase Authentication
         mAuth = FirebaseAuth.getInstance()
 
-        database=FirebaseDatabase.getInstance()
-        storage=FirebaseStorage.getInstance()
+        database = FirebaseDatabase.getInstance()
+        storage = FirebaseStorage.getInstance()
 
         // Initialize UI elements
         name = findViewById(R.id.name)
-        Username = findViewById(R.id.email)
-        Password = findViewById(R.id.setpassword)
-        ConfirmPassword = findViewById(R.id.ConfirmPassword)
-        Signup_Button = findViewById(R.id.signup_button)
+        username = findViewById(R.id.email)
+        password = findViewById(R.id.setpassword)
+        confirmPassword = findViewById(R.id.ConfirmPassword)
+        signupButton = findViewById(R.id.signup_button)
         loginAct = findViewById(R.id.RedirectLogin)
-        UploadImage = findViewById(R.id.registerUserImage)
-
+        uploadImage = findViewById(R.id.registerUserImage)
 
         loginAct.setOnClickListener {
             val intent = Intent(this@Signup, Login::class.java)
@@ -59,28 +59,26 @@ class Signup : AppCompatActivity() {
             finish()
         }
 
-        UploadImage.setOnClickListener{
+        uploadImage.setOnClickListener {
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(
-                Intent.createChooser(intent,"select image"),
+                Intent.createChooser(intent, "Select image"),
                 PICK_IMAGE_REQUEST
             )
         }
-        Signup_Button.setOnClickListener {
+
+        signupButton.setOnClickListener {
             val nameText = name.text.toString().trim()
-            val email = Username.text.toString().trim()
-            val password = Password.text.toString().trim()
-            val confirmPassword = ConfirmPassword.text.toString().trim()
-            if (nameText.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword == password) {
-                signup(nameText, email, password)
-            }
-            else if(confirmPassword!= password)
-            {
+            val email = username.text.toString().trim()
+            val passwordText = password.text.toString().trim()
+            val confirmPasswordText = confirmPassword.text.toString().trim()
+            if (nameText.isNotEmpty() && email.isNotEmpty() && passwordText.isNotEmpty() && confirmPasswordText == passwordText) {
+                signup(nameText, email, passwordText)
+            } else if (confirmPasswordText != passwordText) {
                 Toast.makeText(this, "Please fill the same password.", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
             }
         }
@@ -91,69 +89,72 @@ class Signup : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val uid = mAuth.currentUser?.uid
-                    val userReference = database.getReference("users")
                     if (uid != null) {
-                        addUserToDatabase(name, email, uid)
-                        val storageReference =
-                            storage.reference.child("profile_image/$uid.jpg")
-
-                        storageReference.putFile(imageUri!!).addOnCompleteListener { task->
-                            if(task.isSuccessful){
-                                storageReference.downloadUrl.addOnCompleteListener { imageUri ->
-                                    if (imageUri.isSuccessful) {
-                                        val imageUrl = imageUri.result.toString()
-                                        // save image url to realtime database
-                                        userReference.child(uid)
-                                            .child("profileImage").setValue(imageUrl)
-                                    }
-                                }
-                            }
-                        }
-                        val intent = Intent(this@Signup, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        uploadProfileImageAndAddUser(name, email, uid)
                     } else {
-                        Log.e("Signup", "User ID is null after signup.")
+                        Toast.makeText(this, "User ID is null after signup.", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Log.e("Signup", "Authentication failed.", task.exception)
                     Toast.makeText(
                         baseContext,
                         "Authentication failed: ${task.exception?.message}",
-                        Toast.LENGTH_LONG,
+                        Toast.LENGTH_LONG
                     ).show()
                 }
             }
     }
 
-    private fun addUserToDatabase(name: String, email: String, uid: String) {
-        val user = User(Name = name, email = email, uid = uid)
-        val currentUser = mAuth.currentUser
-
-        if (currentUser != null) {
-            mDbRef = FirebaseDatabase.getInstance().getReference("users")
-            mDbRef.child(uid).setValue(user)
+    private fun uploadProfileImageAndAddUser(name: String, email: String, uid: String) {
+        if (imageUri != null) {
+            Log.d("test","$imageUri")
+            val storageReference: StorageReference = storage.reference.child("profile_image/$uid.jpg")
+            storageReference.putFile(imageUri!!)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d("Signup", "User data saved successfully.")
+                        storageReference.downloadUrl.addOnCompleteListener { imageTask ->
+                            if (imageTask.isSuccessful) {
+                                val imageUrl = imageTask.result.toString()
+                                Log.d("testurl","$imageUri")
+                                addUserToDatabase(name, email, uid, imageUrl)
+                            } else {
+                                addUserToDatabase(name, email, uid,null)
+                                Toast.makeText(this, "Failed to get image URL.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     } else {
-                        Log.e("Signup", "Failed to save user data.", task.exception)
-                        Toast.makeText(this, "Failed to save user data: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        addUserToDatabase(name, email, uid, "")
+                        Toast.makeText(this, "Image upload failed.", Toast.LENGTH_SHORT).show()
                     }
                 }
         } else {
-            Log.e("Signup", "User is not authenticated.")
-            Toast.makeText(this, "User is not authenticated. Cannot save data.", Toast.LENGTH_LONG).show()
+            addUserToDatabase(name, email, uid, null)
         }
     }
+
+    private fun addUserToDatabase(name: String, email: String, uid: String, profileUrl: String?) {
+        val user = User(Name = name, email = email, uid = uid, profileurl = profileUrl)
+        mDbRef = database.getReference("users")
+        mDbRef.child(uid).setValue(user)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "User data saved successfully.", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@Signup, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Failed to save user data: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode==RESULT_OK && data!=null && data.data !=null)
-
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
             imageUri = data.data
-        Glide.with(this)
-            .load(imageUri)
-            .apply(RequestOptions.circleCropTransform())
-            .into(UploadImage)
+            Glide.with(this)
+                .load(imageUri)
+                .apply(RequestOptions.circleCropTransform())
+                .into(uploadImage)
+        }
     }
 }
