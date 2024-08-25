@@ -17,15 +17,23 @@ import com.example.health_connect.fragments.HomeFragment
 import com.example.health_connect.fragments.PrescriptionFragment
 import com.example.health_connect.fragments.TeamFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var fragmentManager : FragmentManager
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        FirebaseApp.initializeApp(this)
+
+        // Check if a user is already authenticated
+        val auth = FirebaseAuth.getInstance()
 // for navigation drawer
         setSupportActionBar(binding.toolbar)
         val toggle = ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.app_name,R.string.email)
@@ -63,7 +71,13 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             R.id.nav_chat -> openFragment(ChatFragment())
             R.id.nav_home -> openFragment(HomeFragment())
             R.id.nav_team -> openFragment(TeamFragment())
-            R.id.nav_prescription -> Toast.makeText(this, "prescription", Toast.LENGTH_SHORT).show()
+            R.id.nav_prescription -> openFragment(PrescriptionFragment())
+            R.id.nav_logout -> {
+                mAuth = FirebaseAuth.getInstance()
+                mAuth.signOut()
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }
 
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
