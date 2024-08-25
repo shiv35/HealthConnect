@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment"
-    android:layout_marginBottom="80dp"
     >
     <ScrollView
         android:layout_width="match_parent"
@@ -123,57 +122,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentBottom="true"
-            android:padding="5dp"
-            android:paddingEnd="20dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                app:cardBackgroundColor="#1ed6a2"
-                app:cardCornerRadius="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/homeicon" />
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Home"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <ImageView
-
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                app:srcCompat="@drawable/people" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:padding="2dp"
-                app:srcCompat="@drawable/chat" />
-        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/quote"
@@ -241,7 +189,6 @@
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="diabetes"

@@ -37,7 +37,7 @@ class PrescriptionFragment : Fragment() {
     }
     private fun getData() {
 
-        val symptoms =  binding.InputBox.text.toString().trim()
+        val symptoms =  binding.editTextSymptoms.text.toString().trim()
 
         if (symptoms.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter symptoms", Toast.LENGTH_SHORT).show()
@@ -59,8 +59,19 @@ class PrescriptionFragment : Fragment() {
                 if (response.isSuccessful && response.body() != null) {
                     val predicted = response.body()?.predicted_disease
                     val description = response.body()?.description
+                    val precaution = response.body()?.precautions
+                    val medication = response.body()?.medications
+                    val diet = response.body()?.diet
+                    val workout = response.body()?.workout
 
-                    binding.PredictedDisease.text=predicted
+
+                    binding.predictedDisease.text=predicted
+                    binding.Description.text=description
+                    binding.Medication.text = medication.toString()
+                    binding.Workout.text=workout.toString()
+                    binding.Diet.text=diet.toString()
+                    binding.Precaution.text=precaution.toString()
+
 
 //
                 } else {
