@@ -5,7 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/but_in_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go to another"
+        android:textSize="20dp"
+        />
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
