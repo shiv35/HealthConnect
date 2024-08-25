@@ -42,7 +42,7 @@
     <string name="save">SAVE</string>
     <string name="sign_up2">SIGN UP</string>
     <string name="last_name">Last Name</string>
-    <string name="first_name">First Name</string>
+    <string name="first_name">Enter the name</string>
     <string name="email1">Email</string>
     <string name="password3">Password</string>
     <string name="confirm_password4">Confirm Password</string>
