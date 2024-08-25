@@ -52,7 +52,7 @@ class Signup : AppCompatActivity() {
                     val uid = mAuth.currentUser?.uid
                     if (uid != null) {
                         addUserToDatabase(name, email, uid)
-                        val intent = Intent(this@Signup, ChatMainActivity::class.java)
+                        val intent = Intent(this@Signup, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

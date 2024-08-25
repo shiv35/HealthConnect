@@ -45,8 +45,10 @@ class ChatMainActivity : AppCompatActivity() {
 
         logoutButton = findViewById(R.id.logout_Button)
         logoutButton.setOnClickListener {
-            mAuth.signOut()
-            val intentNew = Intent(this@ChatMainActivity, Login::class.java)
+
+            // for logging out the current user from firebase.
+//            mAuth.signOut()
+            val intentNew = Intent(this@ChatMainActivity, MainActivity::class.java)
             startActivity(intentNew)
             finish()
         }

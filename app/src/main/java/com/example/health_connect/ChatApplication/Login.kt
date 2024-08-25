@@ -28,7 +28,7 @@ class Login : AppCompatActivity() {
         val currentUser = auth.currentUser
 
         if (currentUser != null) {
-            val intent = Intent(this@Login, ChatMainActivity::class.java)
+            val intent = Intent(this@Login, MainActivity::class.java)
             startActivity(intent)
             finish()
         } else {
@@ -64,7 +64,7 @@ class Login : AppCompatActivity() {
                     saveUserDataToDatabase()
 
                     // Redirect to MainActivity
-                    val intent = Intent(this@Login, ChatMainActivity::class.java)
+                    val intent = Intent(this@Login, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
