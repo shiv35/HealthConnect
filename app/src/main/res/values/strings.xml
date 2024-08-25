@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Health Connect</string>
+    <string name="main_app_name">Health Connect</string>
     <string name="login">LOGIN</string>
     <string name="forgot_password">forgot password ?</string>
     <string name="login1">LOGIN</string>
@@ -106,5 +106,8 @@
     <string name="_8">8</string>
     <string name="_9">9</string>
     <string name="_4">4</string>
+    <string name="app_name">Chat Application</string>
+    <string name="api_key">ttct4fhe82fg</string>
+    <string name="LoginData">Enter the Username or Email</string>
 
 </resources>

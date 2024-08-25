@@ -1,6 +1,7 @@
 package com.example.health_connect
 
 import android.content.ClipData.Item
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -37,7 +38,11 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.bottom_home -> openFragment(HomeFragment())
-                R.id.bottom_chat -> openFragment(ChatFragment())
+                R.id.bottom_chat -> {
+                    val intent = Intent(this, ChatMainActivity::class.java)
+                    startActivity(intent)
+                }
+
                 R.id.bottom_prescription -> openFragment(PrescriptionFragment())
             }
              true
