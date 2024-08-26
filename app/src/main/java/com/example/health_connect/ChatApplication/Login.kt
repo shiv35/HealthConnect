@@ -8,7 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class Login : AppCompatActivity() {
 
@@ -60,7 +64,7 @@ class Login : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Save user data to Firebase Realtime Database after successful login
+                    // Fetch and save user data to Firebase Realtime Database after successful login
                     saveUserDataToDatabase()
 
                     // Redirect to MainActivity
@@ -84,20 +88,40 @@ class Login : AppCompatActivity() {
         val userName = Username.text.toString()
         val email = mAuth.currentUser?.email
 
-        // Create a User object with the logged-in user's data
-        val user = User(Name = userName, email = email, uid = userId)
+        if (userId != null) {
+            // Fetch profile URL from database and save user data
+            getProfileUrl(userId) { profileUrl ->
+                // Create a User object with the logged-in user's data
+                val user = User(email ,userName, userId,  profileUrl)
 
-        // Save the user data to Firebase Realtime Database under the "users" node
-        FirebaseDatabase.getInstance().getReference("users").child(userId!!)
-            .setValue(user)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // User data saved successfully
-                    Toast.makeText(this, "User data saved successfully.", Toast.LENGTH_SHORT).show()
-                } else {
-                    // Handle the error
-                    Toast.makeText(this, "Failed to save user data.", Toast.LENGTH_SHORT).show()
-                }
+                // Save the user data to Firebase Realtime Database under the "users" node
+                FirebaseDatabase.getInstance().getReference("users").child(userId)
+                    .setValue(user)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            // User data saved successfully
+                            Toast.makeText(this, "User data saved successfully.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            // Handle the error
+                            Toast.makeText(this, "Failed to save user data.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             }
+        }
+    }
+
+    private fun getProfileUrl(userId: String, callback: (String?) -> Unit) {
+        val userReference = FirebaseDatabase.getInstance().reference.child("users").child(userId)
+        userReference.child("profileurl").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val profileImageUrl = snapshot.getValue(String::class.java)
+                callback(profileImageUrl)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@Login, "Error retrieving profile URL: ${error.message}", Toast.LENGTH_SHORT).show()
+                callback(null)
+            }
+        })
     }
 }
