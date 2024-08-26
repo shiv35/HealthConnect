@@ -5,6 +5,9 @@
 
 Our app is a comprehensive platform designed to connect individuals battling similar illnesses, providing them with support, information, and a sense of community. Users can securely sign up or log in to access a user-friendly Home Page that serves as the gateway to various key features, including Group Chatting, Video Calling, and Blog Posting. The app integrates an advanced ML-driven Medical Recommendations system, offering predictive insights based on users' symptoms, along with tailored medication and workout routines. The Group Chatting and Video Calling features foster real-time communication and face-to-face interactions, allowing users to share experiences, receive guidance, and offer mutual support. Additionally, the Blog section provides a space for survivors to share their journeys, offering hope and valuable advice to others facing similar challenges. This project aims to create a supportive community where users can find the help and encouragement they need to manage their health and well-being.
 
+## Workflow
+![WhatsApp Image 2024-08-26 at 21 40 16](https://github.com/user-attachments/assets/d12eed92-7514-468b-9f9e-4d84f9853e96)
+
 
 ## Project Components
 
