@@ -1,6 +1,7 @@
 package com.example.health_connect.fragments
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.health_connect.BlogRelated.CovidBlog
 import com.example.health_connect.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -31,6 +34,12 @@ class HomeFragment : Fragment() {
         UsernameDashboard = view.findViewById(R.id.Username_dashboard) // Initialize UsernameDashboard here
 
         val currentUser = FirebaseAuth.getInstance().currentUser
+        val cardView = view.findViewById<CardView>(R.id.CovidBlog)
+
+        cardView.setOnClickListener {
+            val intent = Intent(requireContext(), CovidBlog::class.java)
+            startActivity(intent)
+        }
 
         if (currentUser != null) {
             val userId = currentUser.uid

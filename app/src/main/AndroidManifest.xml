@@ -16,6 +16,9 @@
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
+            android:name=".BlogRelated.CovidBlog"
+            android:exported="false" />
+        <activity
             android:name=".Signup"
             android:exported="false" />
         <activity
