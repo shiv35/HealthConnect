@@ -2,13 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item
       android:id="@+id/bottom_home"
-      android:title="home"
+      android:title="Home"
       android:icon="@drawable/home"
       />
 
     <item
+        android:iconTint="@color/white"
         android:id="@+id/bottom_team"
-        android:title="team"
+        android:title="Meet"
         android:icon="@drawable/team"
         />
 
@@ -17,12 +18,12 @@
       />
   <item
       android:id="@+id/bottom_chat"
-      android:title="chat"
+      android:title="Chat"
       android:icon="@drawable/chat"
       />
   <item
       android:id="@+id/bottom_prescription"
-      android:title="prescription"
+      android:title="AI_Doc"
       android:icon="@drawable/prescription"
       />
 

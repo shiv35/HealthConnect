@@ -7,22 +7,22 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
-            android:title="home"
+            android:title="Home"
             />
         <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/chat"
-            android:title="chat"
+            android:title="Chat"
             />
         <item
             android:id="@+id/nav_prescription"
             android:icon="@drawable/prescription"
-            android:title="prescription"
+            android:title="AI Doctor"
             />
         <item
             android:id="@+id/nav_team"
             android:icon="@drawable/team"
-            android:title="team"
+            android:title="Meet"
             />
         <item
             android:id="@+id/nav_logout"
