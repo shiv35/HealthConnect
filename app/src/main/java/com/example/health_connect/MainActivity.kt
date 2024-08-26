@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -47,12 +48,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         binding.navigationDrawer.setNavigationItemSelectedListener(this)
 
-        // Load the user's profile image in the nav header
+        // Load the user's profile image and name in the nav header
         val headerView = binding.navigationDrawer.getHeaderView(0)
         val userImageView = headerView.findViewById<ImageView>(R.id.register_userimage)
+        val usernameTextView = headerView.findViewById<TextView>(R.id.Uername_navbar)
         val currentUser = mAuth.currentUser
         if (currentUser != null) {
             loadUserProfileImage(currentUser.uid, userImageView)
+            loadUserName(currentUser.uid, usernameTextView)
         }
 
         // Set up bottom navigation
@@ -126,6 +129,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@MainActivity, "Error loading image: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun loadUserName(userId: String, usernameTextView: TextView) {
+        val userReference = FirebaseDatabase.getInstance().reference.child("users").child(userId)
+        userReference.child("name").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val userName = snapshot.getValue(String::class.java)
+                if (userName != null) {
+                    usernameTextView.text = "Welcome $userName"
+                } else {
+                    usernameTextView.text = "Welcome User"
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@MainActivity, "Error loading name: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

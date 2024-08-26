@@ -1,11 +1,13 @@
 package com.example.health_connect.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -16,8 +18,9 @@ import com.google.firebase.database.*
 class HomeFragment : Fragment() {
 
     private lateinit var userImageLoad: ImageView
-//    private lateinit var userReference: DatabaseReference
+    private lateinit var UsernameDashboard: TextView
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,44 +28,50 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         userImageLoad = view.findViewById(R.id.userImageLoad)
+        UsernameDashboard = view.findViewById(R.id.Username_dashboard) // Initialize UsernameDashboard here
 
-        // Assuming you have the userId available
         val currentUser = FirebaseAuth.getInstance().currentUser
 
         if (currentUser != null) {
-            // Get the user's UID
             val userId = currentUser.uid
-
-            // Now you can use this UID to perform actions, e.g., access the user's data in Firebase
             Log.d("UserID", "Current user ID: $userId")
-            loadUserProfileImage(userId)
+            // Load user data from Firebase Realtime Database
+            loadUserData(userId)
         } else {
-            // No user is logged in
+            UsernameDashboard.text = "Welcome User"
             Log.d("UserID", "No user is currently logged in.")
         }
-
 
         return view
     }
 
-    private fun loadUserProfileImage(userId: String) {
+    private fun loadUserData(userId: String) {
         val userReference = FirebaseDatabase.getInstance().reference.child("users").child(userId)
-        userReference.child("profileurl").addValueEventListener(object : ValueEventListener {
+        userReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val profileImageUrl = snapshot.getValue(String::class.java)
+                val name = snapshot.child("name").getValue(String::class.java)
+                val profileImageUrl = snapshot.child("profileurl").getValue(String::class.java)
+
+                // Update username TextView
+                if (name != null) {
+                    UsernameDashboard.text = "Welcome $name"
+                } else {
+                    UsernameDashboard.text = "Welcome User"
+                }
+
+                // Update profile image
                 if (profileImageUrl != null) {
                     Glide.with(this@HomeFragment)
                         .load(profileImageUrl)
-                        .into(userImageLoad)  // Ensure this matches your ImageView's ID
+                        .into(userImageLoad)
                 } else {
                     Toast.makeText(activity, "No profile image found.", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(activity, "Error loading image: ${error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Error loading data: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
-
 }
