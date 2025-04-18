@@ -8,4 +8,3 @@ interface ApiService {
         @POST("predict")
         fun getPrediction(@Body request: InputDataClass): Call<ResponseDataClass>
 }
-
