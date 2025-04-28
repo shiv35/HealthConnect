@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
+//import com.example.health_connect.ChatSection.ChatActivity
 import com.example.health_connect.databinding.ActivityMainBinding
 import com.example.health_connect.fragments.ChatFragment
 import com.example.health_connect.fragments.HomeFragment
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             when (item.itemId) {
                 R.id.bottom_home -> openFragment(HomeFragment())
                 R.id.bottom_chat -> {
-                    val intent = Intent(this, ChatMainActivity::class.java)
+                    val intent = Intent(this, com.example.health_connect.ChatMainActivity::class.java)
                     startActivity(intent)
                 }
                 R.id.bottom_prescription -> openFragment(PrescriptionFragment())

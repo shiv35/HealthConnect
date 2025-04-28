@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -24,6 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health_Connect"
         tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".ChatSection.ChatActivity"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".Spam_Detection"
+            android:exported="false" />
         <activity
             android:name=".VideoConferencing.VideoCallActivity"
             android:exported="false" />
