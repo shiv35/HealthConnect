@@ -82,4 +82,8 @@ dependencies {
     implementation ("androidx.activity:activity-ktx:1.10.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
+
+//    implementation ("com.sun.mail:android-mail:1.6.7")
+//    implementation ("com.sun.mail:android-activation:1.6.7")
+
 }
