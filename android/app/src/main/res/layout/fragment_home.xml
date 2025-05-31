@@ -24,7 +24,7 @@
                 android:layout_height="280dp"
                 android:layout_marginTop="-40dp"
                 android:elevation="25dp"
-                app:cardBackgroundColor="#E0E0E0"
+                app:cardBackgroundColor="#706D6D"
                 app:cardCornerRadius="30dp">
 
                 <LinearLayout
@@ -180,7 +180,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:cardBackgroundColor="#E0E0E0"
+                    app:cardBackgroundColor="#706D6D"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -193,7 +193,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Covid"
-                            android:textSize="16sp"
+                            android:textSize="26sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -204,7 +204,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:cardBackgroundColor="#E0E0E0"
+                    app:cardBackgroundColor="#706D6D"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -217,7 +217,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Fever"
-                            android:textSize="16sp"
+                            android:textSize="26sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -229,7 +229,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_marginRight="5dp"
-                    app:cardBackgroundColor="#E0E0E0"
+                    app:cardBackgroundColor="#706D6D"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -242,7 +242,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cancer"
-                            android:textSize="16sp"
+                            android:textSize="26sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -291,7 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="10dp">
+                    >
 
                     <!-- ─── First Blog Card ─── -->
                     <androidx.cardview.widget.CardView
@@ -299,7 +299,7 @@
                         android:layout_height="120dp"
                         android:layout_marginEnd="10dp"
                         android:padding="10dp"
-                        app:cardBackgroundColor="#E0E0E0"
+                        app:cardBackgroundColor="#706D6D"
                         app:cardCornerRadius="30dp">
 
                         <LinearLayout
@@ -413,7 +413,7 @@
                         android:layout_height="120dp"
                         android:layout_marginEnd="10dp"
                         android:padding="10dp"
-                        app:cardBackgroundColor="#E0E0E0"
+                        app:cardBackgroundColor="#706D6D"
                         app:cardCornerRadius="30dp">
 
                         <LinearLayout
@@ -529,7 +529,7 @@
                         android:layout_height="120dp"
                         android:layout_marginEnd="10dp"
                         android:padding="10dp"
-                        app:cardBackgroundColor="#E0E0E0"
+                        app:cardBackgroundColor="#706D6D"
                         app:cardCornerRadius="30dp">
 
                         <LinearLayout
