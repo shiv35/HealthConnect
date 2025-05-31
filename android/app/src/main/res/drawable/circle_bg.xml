@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- Change this color to whatever background color you want behind the checkmark -->
+    <solid android:color="@color/white"/>
+    <!-- Optionally add a stroke (border) if you like -->
+    <!--
+    <stroke
+        android:width="1dp"
+        android:color="@color/lightGray"/>
+    -->
+    <!-- Make sure the shape is sized to match the ImageView’s 24dp × 24dp -->
+    <size
+        android:width="24dp"
+        android:height="24dp"/>
+</shape>
