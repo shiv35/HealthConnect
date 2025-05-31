@@ -3,18 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+    tools:context=".Signup">
 
     <!-- ====== Top: Profile Image (rounded) ====== -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/registerUserImage"
@@ -24,247 +28,264 @@
     </androidx.cardview.widget.CardView>
 
     <!-- ====== Name Field ====== -->
+    <!-- ====== Name Field ====== -->
     <EditText
         android:id="@+id/name"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext_background"
+        android:backgroundTint="#BBDEFB"
         android:ems="10"
-        android:gravity="center"
+        android:gravity="center_vertical|start"
         android:hint="@string/first_name"
+        android:textColorHint="#616161"
         android:inputType="text"
-        android:letterSpacing="0.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        android:paddingStart="56dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/cardView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- ====== Email Field ====== -->
     <EditText
         android:id="@+id/email"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext_background"
+        android:backgroundTint="#BBDEFB"
         android:ems="10"
-        android:gravity="center"
+        android:gravity="center_vertical|start"
         android:hint="@string/email1"
+        android:textColorHint="#616161"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        android:paddingStart="56dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <!-- ====== Password Field ====== -->
     <EditText
         android:id="@+id/setpassword"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext_background"
-        android:gravity="center"
+        android:backgroundTint="#BBDEFB"
+        android:gravity="center_vertical|start"
         android:hint="@string/password3"
+        android:textColorHint="#616161"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="56dp"
+        android:paddingEnd="48dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
-    <!-- ====== Confirm Password Field ====== -->
     <EditText
         android:id="@+id/ConfirmPassword"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext_background"
-        android:gravity="center"
+        android:backgroundTint="#BBDEFB"
+        android:gravity="center_vertical|start"
         android:hint="@string/confirm_password4"
+        android:textColorHint="#616161"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:paddingStart="56dp"
+        android:paddingEnd="48dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/setpassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ====== New: "Are you a doctor?" Checkbox (below ConfirmPassword) ====== -->
+
+    <!-- ====== "Are you a doctor?" Checkbox ====== -->
     <CheckBox
         android:id="@+id/isDoctorCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Are you a doctor?"
-        android:checked="false"
         android:layout_marginTop="16dp"
+        android:text="Are you a doctor?"
+        android:textColor="#263238"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/ConfirmPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ====== New: Certificate Number Field (Initially Hidden, below the Checkbox) ====== -->
+    <!-- ====== Certificate Number Field (Initially Hidden) ====== -->
     <EditText
         android:id="@+id/doctorCertNumber"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:visibility="gone"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext_background"
-        android:gravity="center"
+        android:backgroundTint="#BBDEFB"
+        android:gravity="center_vertical|start"
         android:hint="Registration Number"
+        android:textColorHint="#616161"
         android:inputType="text"
+        android:paddingStart="16dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/isDoctorCheckbox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
     <ProgressBar
         android:id="@+id/progressCert"
         style="?android:attr/progressBarStyleSmall"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
         android:indeterminate="true"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/doctorCertNumber"
         app:layout_constraintBottom_toBottomOf="@id/doctorCertNumber"
-        app:layout_constraintTop_toTopOf="@id/doctorCertNumber"
-        android:layout_marginEnd="12dp" />
+        app:layout_constraintTop_toTopOf="@id/doctorCertNumber" />
 
     <ImageView
         android:id="@+id/doneCert"
         android:layout_width="24dp"
-        android:background="@drawable/circle_bg"
         android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/circle_bg"
         android:src="@drawable/okk"
-    android:visibility="gone"
-    app:layout_constraintEnd_toEndOf="@id/doctorCertNumber"
-    app:layout_constraintBottom_toBottomOf="@id/doctorCertNumber"
-    app:layout_constraintTop_toTopOf="@id/doctorCertNumber"
-    android:layout_marginEnd="12dp" />
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/doctorCertNumber"
+        app:layout_constraintBottom_toBottomOf="@id/doctorCertNumber"
+        app:layout_constraintTop_toTopOf="@id/doctorCertNumber" />
 
-
-    <!-- ====== Sign Up Button (remains below the doctor fields) ====== -->
+    <!-- ====== Sign Up Button ====== -->
     <Button
         android:id="@+id/signup_button"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background"
-        android:backgroundTint="#000000"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="#EC407A"
         android:text="@string/signup"
-        android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/doctorCertNumber"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- ====== "Already Have an Account?" Text ====== -->
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:letterSpacing="0.1"
+        android:layout_marginTop="16dp"
+        android:letterSpacing="0.05"
         android:text="@string/already_have_an_account"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
+        android:textColor="#263238"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/signup_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- ====== "Login" Redirect Text ====== -->
     <TextView
         android:id="@+id/RedirectLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/login2"
-        android:textColor="@color/skyBlue"
-        android:textSize="17sp"
+        android:textColor="#EC407A"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.823" />
+        app:layout_constraintHorizontal_bias="0.75" />
 
     <!-- ====== "Show/Hide Password" Icons ====== -->
     <ImageView
         android:id="@+id/eye"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="@id/setpassword"
+        app:layout_constraintEnd_toEndOf="@id/setpassword"
+        app:layout_constraintTop_toTopOf="@id/setpassword"
         app:srcCompat="@drawable/eye" />
 
     <ImageView
         android:id="@+id/eye1"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="@id/ConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@id/ConfirmPassword"
+        app:layout_constraintTop_toTopOf="@id/ConfirmPassword"
         app:srcCompat="@drawable/eye" />
 
     <!-- ====== Icon Indicators for Each Field ====== -->
+
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/name"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/name"
         app:srcCompat="@drawable/first_name" />
 
     <ImageView
         android:id="@+id/imageView18"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/email"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintTop_toTopOf="@id/email"
+        app:layout_constraintVertical_bias="0.583"
         app:srcCompat="@drawable/email1" />
 
     <ImageView
         android:id="@+id/imageView20"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/setpassword"
+        app:layout_constraintStart_toStartOf="@id/setpassword"
+        app:layout_constraintTop_toTopOf="@id/setpassword"
         app:srcCompat="@drawable/password1" />
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/ConfirmPassword"
+        app:layout_constraintStart_toStartOf="@id/ConfirmPassword"
+        app:layout_constraintTop_toTopOf="@id/ConfirmPassword"
         app:srcCompat="@drawable/password1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
