@@ -1,268 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PrescriptionFragment">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    tools:context=".fragments.PrescriptionFragment"
+    android:background="#EFF4F8"> <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"> <androidx.cardview.widget.CardView
+        android:id="@+id/inputcard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp" android:layout_marginTop="28dp" android:elevation="12dp" app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="22dp"> <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp"> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Identify Symptoms" android:textColor="#2A3C50" android:textSize="24sp" android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Describe what you're feeling."
+            android:textColor="#7A8B9D" android:textSize="15sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="18dp" />
+
+        <EditText
+            android:id="@+id/editTextSymptoms"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="e.g., fever, cough, fatigue" android:textColor="#333333"
+            android:inputType="textMultiLine" android:gravity="top|start" android:paddingStart="20dp"
+            android:paddingTop="15dp" android:paddingEnd="20dp"
+            android:paddingBottom="15dp"
+            android:textColorHint="#997A8B9D" /> <Button
+            android:id="@+id/predictBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" android:layout_marginTop="30dp"
+            android:text="Analyze Symptoms" android:textColor="#FFFFFF"
+            android:textSize="19sp" android:textStyle="bold"
+            android:stateListAnimator="@null" android:elevation="6dp" android:translationZ="6dp" android:foreground="?attr/selectableItemBackground" />
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/inputcard"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/outputcard"
+            app:layout_constraintTop_toBottomOf="@id/inputcard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="25dp"
-            app:cardBackgroundColor="#65d3a5"
-            app:layout_constraintStart_toStartOf="parent">
+            android:elevation="12dp"
+            android:layout_marginTop="24dp" android:layout_marginHorizontal="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="22dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp">
+                android:padding="28dp"> <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Predicted Disease"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#2A3C50"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"/> <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp" app:cardCornerRadius="16dp" app:cardElevation="4dp" app:cardBackgroundColor="#F7FAFC"> <TextView
+                android:id="@+id/predictedDisease"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp" android:text="No prediction available yet. Please enter symptoms above."
+                android:textColor="#4A5C6D" android:textSize="17sp"
+                android:lineSpacingExtra="4dp" /> </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enter Symptoms"
-                    android:textColor="#302E2E"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:text="Description"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A3C50"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="12dp"/>
 
-                <EditText
-                    android:id="@+id/editTextSymptoms"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_bg"
-                    android:hint="Add Symptoms..."
-                    android:textColor="@color/white"
-                    android:inputType="text"
-                    android:paddingStart="25dp"
-                    android:paddingTop="2dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="2dp"
-                    android:textColorHint="@color/white" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#F7FAFC">
+                    <TextView
+                        android:id="@+id/Description"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:text="Detailed information about the predicted condition."
+                        android:textColor="#4A5C6D"
+                        android:textSize="17sp"
+                        android:lineSpacingExtra="4dp" />
+                </androidx.cardview.widget.CardView>
 
-                <Button
-                    android:id="@+id/predictBtn"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Medication"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A3C50"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="#302E2E"
-                    android:text="Predict"
-                    android:textColor="#FFFFFF"/>
+                    android:layout_marginBottom="12dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#F7FAFC">
+                    <TextView
+                        android:id="@+id/Medication"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:text="Recommended pharmacological treatments."
+                        android:textColor="#4A5C6D"
+                        android:textSize="17sp"
+                        android:lineSpacingExtra="4dp" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Precaution"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A3C50"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="12dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#F7FAFC">
+                    <TextView
+                        android:id="@+id/Precaution"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:text="Preventive measures and safety guidelines."
+                        android:textColor="#4A5C6D"
+                        android:textSize="17sp"
+                        android:lineSpacingExtra="4dp" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diet"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A3C50"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="12dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#F7FAFC">
+                    <TextView
+                        android:id="@+id/Diet"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:text="Nutritional advice for recovery and health."
+                        android:textColor="#4A5C6D"
+                        android:textSize="17sp"
+                        android:lineSpacingExtra="4dp" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A3C50"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="12dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#F7FAFC">
+                    <TextView
+                        android:id="@+id/Workout"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:text="Exercise routines for strength and well-being."
+                        android:textColor="#4A5C6D"
+                        android:textSize="17sp"
+                        android:lineSpacingExtra="4dp" />
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/outputcard"
-            app:layout_constraintTop_toBottomOf="@id/inputcard"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="25dp"
-            android:layout_marginTop="15dp"
-            app:cardBackgroundColor="#65d3a5"
-            app:layout_constraintStart_toStartOf="parent">
-
-
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center"
-               android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Predicted Disease"
-                android:textSize="25sp"
-                android:textStyle="bold"
-               />
-               <androidx.cardview.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="1dp"
-                   card_view:cardCornerRadius="8dp"
-                   card_view:cardElevation="4dp"
-                   card_view:cardBackgroundColor="@android:color/black">
-                   <TextView
-                       android:id="@+id/predictedDisease"
-                       android:textAlignment="center"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_margin="16dp"
-                       android:text="This is a black card"
-                       android:textColor="@android:color/white"
-                       android:textSize="18sp" />
-
-               </androidx.cardview.widget.CardView>
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Description"
-                   android:textSize="25sp"
-                   android:textStyle="bold"
-                   />
-               <androidx.cardview.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="1dp"
-                   card_view:cardCornerRadius="8dp"
-                   card_view:cardElevation="4dp"
-                   card_view:cardBackgroundColor="@android:color/black">
-                   <TextView
-                       android:id="@+id/Description"
-                       android:layout_width="match_parent"
-                       android:textAlignment="center"
-                       android:layout_height="wrap_content"
-                       android:layout_margin="16dp"
-                       android:text="This is a black card"
-                       android:textColor="@android:color/white"
-                       android:textSize="18sp" />
-
-               </androidx.cardview.widget.CardView>
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Medication"
-                   android:textSize="25sp"
-                   android:textStyle="bold"
-                   />
-               <androidx.cardview.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="1dp"
-                   card_view:cardCornerRadius="8dp"
-                   card_view:cardElevation="4dp"
-                   card_view:cardBackgroundColor="@android:color/black">
-                   <TextView
-                       android:id="@+id/Medication"
-                       android:layout_width="match_parent"
-                       android:textAlignment="center"
-                       android:layout_height="wrap_content"
-                       android:layout_margin="16dp"
-                       android:text="This is a black card"
-                       android:textColor="@android:color/white"
-                       android:textSize="18sp" />
-
-               </androidx.cardview.widget.CardView>
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Precaution"
-                   android:textSize="25sp"
-                   android:textStyle="bold"
-                   />
-               <androidx.cardview.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="1dp"
-                   card_view:cardCornerRadius="8dp"
-                   card_view:cardElevation="4dp"
-                   card_view:cardBackgroundColor="@android:color/black">
-                   <TextView
-                       android:id="@+id/Precaution"
-                       android:layout_width="match_parent"
-                       android:textAlignment="center"
-                       android:layout_height="wrap_content"
-                       android:layout_margin="16dp"
-                       android:text="This is a black card"
-                       android:textColor="@android:color/white"
-                       android:textSize="18sp" />
-
-               </androidx.cardview.widget.CardView>
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Diet"
-                   android:textSize="25sp"
-                   android:textStyle="bold"
-                   />
-               <androidx.cardview.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="1dp"
-                   card_view:cardCornerRadius="8dp"
-                   card_view:cardElevation="4dp"
-                   card_view:cardBackgroundColor="@android:color/black">
-                   <TextView
-                       android:id="@+id/Diet"
-                       android:layout_width="match_parent"
-                       android:textAlignment="center"
-                       android:layout_height="wrap_content"
-                       android:layout_margin="16dp"
-                       android:text="This is a black card"
-                       android:textColor="@android:color/white"
-                       android:textSize="18sp" />
-
-               </androidx.cardview.widget.CardView>
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Workout"
-                   android:textSize="25sp"
-                   android:textStyle="bold"
-                   />
-               <androidx.cardview.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="1dp"
-                   card_view:cardCornerRadius="8dp"
-                   card_view:cardElevation="4dp"
-                   card_view:cardBackgroundColor="@android:color/black">
-                   <TextView
-                       android:id="@+id/Workout"
-                       android:layout_width="match_parent"
-                       android:textAlignment="center"
-                       android:layout_height="wrap_content"
-                       android:layout_margin="16dp"
-                       android:text="This is a black card"
-                       android:textColor="@android:color/white"
-                       android:textSize="18sp" />
-
-               </androidx.cardview.widget.CardView>
-
-           </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+</ScrollView>
 </FrameLayout>

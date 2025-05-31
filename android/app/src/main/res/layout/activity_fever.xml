@@ -17,7 +17,7 @@
             android:id="@+id/headerText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Covid Related Blogs"
+            android:text="Fever Related Blogs"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             card_view:cardCornerRadius="16dp"
-            card_view:cardElevation="6dp"
+            card_view:cardElevation="26dp"
             android:backgroundTint="#FFFFFF">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="26dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="How Staying Calm During COVID Saved My Life and Others"
+                    android:text="What I Learned While Battling a Fever"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#1E88E5"
@@ -74,13 +74,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="When COVID-19 first hit, I remember the fear that swept through our community. It was like nothing I’d ever experienced. The news was filled with stories of hospitals overwhelmed, people panic-buying, and uncertainty about what was coming next. It was easy to get caught up in the anxiety and let fear take over, but I knew that wouldn’t help anyone—not me, not my family, not my neighbors.
-
-The Panic Around Me
-I remember the first time I saw the empty shelves at the grocery store. People were frantically grabbing anything they could, filling their carts with more than they’d ever need. I felt a knot in my stomach—what if we ran out of food? What if my family got sick? But then I took a deep breath. I realized that panicking would only make things worse. Instead of joining the frenzy, I made a list of what we actually needed and stuck to it. By doing this, I was able to avoid unnecessary stress and ensure that others in the community also had access to essential supplies."
-                    android:textSize="14sp"
-                    android:textColor="#666666"
-                    android:layout_marginTop="4dp" />
+                    android:text="When fever first hit, I remember the panic it caused in my home. The rising temperature, weakness, and worry about what it could mean made things stressful. But I knew panicking wouldn’t help. Instead, I focused on hydration, rest, and consulting the doctor calmly. By staying composed, I could help not just myself, but reassure my family too."/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -99,8 +93,8 @@ I remember the first time I saw the empty shelves at the grocery store. People w
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            card_view:cardCornerRadius="16dp"
-            card_view:cardElevation="6dp"
+            card_view:cardCornerRadius="26dp"
+            card_view:cardElevation="16dp"
             android:backgroundTint="#FFFFFF">
 
             <LinearLayout
@@ -135,7 +129,7 @@ I remember the first time I saw the empty shelves at the grocery store. People w
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Staying Positive During COVID"
+                    android:text="Stay Positive"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#1E88E5"
