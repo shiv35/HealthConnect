@@ -13,7 +13,9 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.health_connect.BlogRelated.CancerBlog
 import com.example.health_connect.BlogRelated.CovidBlog
+import com.example.health_connect.BlogRelated.FeverBlog
 import com.example.health_connect.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -34,10 +36,20 @@ class HomeFragment : Fragment() {
         UsernameDashboard = view.findViewById(R.id.Username_dashboard) // Initialize UsernameDashboard here
 
         val currentUser = FirebaseAuth.getInstance().currentUser
-        val cardView = view.findViewById<CardView>(R.id.CovidBlog)
+        val cardView_Covid = view.findViewById<CardView>(R.id.CovidBlog)
+        val cardView_Fever = view.findViewById<CardView>(R.id.feverBlog)
+        val cardView_Cancer = view.findViewById<CardView>(R.id.CancerBlog)
 
-        cardView.setOnClickListener {
+        cardView_Covid.setOnClickListener {
             val intent = Intent(requireContext(), CovidBlog::class.java)
+            startActivity(intent)
+        }
+        cardView_Fever.setOnClickListener {
+            val intent = Intent(requireContext(),FeverBlog::class.java)
+            startActivity(intent)
+        }
+        cardView_Cancer.setOnClickListener {
+            val intent = Intent(requireContext(),CancerBlog::class.java)
             startActivity(intent)
         }
 
