@@ -24,9 +24,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health_Connect"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".ChatSection.ChatActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".BlogRelated.CancerBlog"
+            android:exported="false" />
+        <activity
+            android:name=".BlogRelated.FeverBlog"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ChatSection.ChatActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".Spam_Detection"
             android:exported="false" />
